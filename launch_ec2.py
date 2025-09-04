@@ -9,7 +9,7 @@ def create_ec2_instance(instance_type):
         MinCount=1,
         MaxCount=1,
         InstanceType=instance_type,
-        KeyName='your-key-name',  # Must already exist
+        KeyName='kbalakey',  # Must already exist
         TagSpecifications=[
             {
                 'ResourceType': 'instance',
