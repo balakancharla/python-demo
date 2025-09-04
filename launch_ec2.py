@@ -18,7 +18,7 @@ def create_ec2_instance(instance_type):
         ]
     )
 
-    print("✅ Launched EC2 Instance ID:", instance[0].id)
+    print("✅ Launched EC2  ID:", instance[0].id)
 
 if __name__ == "__main__":
     instance_type = sys.argv[1] if len(sys.argv) > 1 else "t2.micro"

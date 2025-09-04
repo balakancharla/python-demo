@@ -1,6 +1,9 @@
 name: Launch EC2 Instance
 
 on:
+  push:
+    paths:
+      - 'launch_ec2.py'
   workflow_dispatch:
     inputs:
       instance_type:
