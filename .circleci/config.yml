@@ -1,0 +1,33 @@
+version: 2.1
+
+parameters:
+  instance_type:
+    type: string
+    default: "t2.micro"
+
+executors:
+  python-executor:
+    docker:
+      - image: cimg/python:3.10
+
+jobs:
+  launch-ec2:
+    parameters:
+      instance_type:
+        type: string
+    executor: python-executor
+    steps:
+      - checkout
+      - run:
+          name: Install Boto3
+          command: pip install boto3
+      - run:
+          name: Launch EC2 instance
+          command: |
+            python launch_ec2.py << parameters.instance_type >>
+
+workflows:
+  deploy-ec2:
+    jobs:
+      - launch-ec2:
+          instance_type: "t2.micro"  # 👈 Change this to test different instance types
